@@ -1,14 +1,23 @@
 from django.shortcuts import render, redirect
 from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.views.decorators.csrf import csrf_exempt
+from .models import Asset, Profile
+
+
 
 def home_page(request):
     return render(request, 'mainsite/main_page/home_page.html', )
 
-def data_input(request):
-    return render(request, 'mainsite/input/asset_list.html', )
+
+
+def asset_list(request):
+    assets = Asset.objects.all()
+
+    context = {'assets': assets}
+    return render(request, 'mainsite/input/asset_list.html', context )
 
 
 def signup(request):

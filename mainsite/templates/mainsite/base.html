@@ -12,7 +12,7 @@
 
           {% if user.is_authenticated %}
             <a href="#">Главная страница</a>
-            <a href="{% url 'data_input' %}">Ввод данных</a>
+            <a href="{% url 'asset_list' %}">Ввод данных</a>
             <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
           {% else %}
             <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>

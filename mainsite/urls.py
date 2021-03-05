@@ -7,9 +7,7 @@ urlpatterns = [
     path('', views.home_page, name='home_page'),
     path('signup/', views.signup, name='signup'),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
-    path('input/data_input', views.data_input, name='data_input'),
-
-
+    path('input/asset_list', views.asset_list, name='asset_list'),
 
 
 ]
