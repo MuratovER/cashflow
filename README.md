@@ -15,6 +15,9 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 ```
 
+##Contributing
+[CONTRIBUTING.md](https://github.com/MuratovER/cashflow/blob/main/CONTRIBUTING.md)
+
 
 ## База данных
 
