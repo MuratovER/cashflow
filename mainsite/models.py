@@ -21,7 +21,7 @@ class Asset(models.Model):
     user = Profile.user
     asset_name = models.CharField(max_length=100, blank=True)
     buy_price = models.FloatField(default=0)
-    modified_buy_price = models.FloatField(default=0)
+    modified_buy_price = models.FloatField(default=0, null=True)
     count = models.PositiveIntegerField(default=1)
 
 

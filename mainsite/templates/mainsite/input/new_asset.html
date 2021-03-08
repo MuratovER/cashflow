@@ -1,0 +1,13 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+<div class="new_asset_page">
+<h1>Новый Активы</h1>
+<form method = "POST">
+    {% csrf_token %}
+    {{ form }}
+    <div>
+      <input type="submit" value="Add asset">
+    </div>
+  </form>
+</div>
+{% endblock %}

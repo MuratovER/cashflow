@@ -1,11 +1,16 @@
 {% extends 'mainsite/base.html' %}
 {% block content %}
 
-<h1>Активы</h1>
-
 <div class="asset_list">
+<h1>Активы</h1>
 {% for assets in assets %}
     {{ assets }}
 {% endfor %}
+<div class="new_asset_button">
+    <a href="{% url 'new_asset_page' %}">
+        <button type="button" class="btn btn-success">New asset</button>
+    </a>
 </div>
+</div>
+
 {% endblock %}
