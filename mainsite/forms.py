@@ -15,6 +15,12 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username','email', 'password1')
 
+class AssetMathForm(forms.ModelForm):
+
+    class Meta:
+        model = Asset      
+        fields = ('growth',)  
+
 
 class AssetForm(forms.ModelForm):
 

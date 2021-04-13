@@ -23,7 +23,7 @@ class Asset(models.Model):
     buy_price = models.FloatField(default=0)
     modified_buy_price = models.FloatField(default=0, null=True)
     count = models.PositiveIntegerField(default=1)
-
+    growth = models.FloatField(default=0)
 
     def price(self):
         total_price = buy_price*count

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.views.decorators.csrf import csrf_exempt
 from .models import Asset, Profile
+from .forms import AssetMathForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -16,20 +17,43 @@ def home_page(request):
 @login_required
 def asset_list(request):
 
-    assets = Asset.objects.all()
-    context = {'assets': assets}
-    
+    assets = Asset.objects.all().order_by('asset_name') 
+
+
+    for asset in assets:
+        # buy_price = assets.buy_price
+        buy_price = asset.buy_price
+        modified_buy_price = asset.modified_buy_price
+        
+        if asset.modified_buy_price:
+            growth_price = ((modified_buy_price-buy_price)/buy_price)*100
+            asset(growth=growth_price)
+            growth.save()
+            
+            print(growth)
+
+
+    context = {'assets': assets,'growth':growth} 
     return render(request, 'mainsite/input/asset_list.html', context )
 
+def asset_counts(request):
+    asset = Asset.objects.all()
+    
+
+    context = {'growth_percantage': growth_percantage}
+
+    print('growth_percantage')
+    return render(request, 'mainsite/input/asset_list.html',context)
 
 @login_required
 def new_asset_page(request):
 
-
+    
     if request.method == 'POST':
         form = AssetForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('asset_list')
 
     form = AssetForm
     context = {'form': form}

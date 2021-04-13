@@ -8,4 +8,54 @@ footer {
     width: 100%;
     /* position: fixed;
     z-index: 1; */
+}
+
+.asset_list {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+
+}
+
+.name_of_asset  {
+
+  margin-left: 8px;
+  margin-right: 8px;
+
+}
+
+.buy_price {
+
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.asset_count {
+    margin-left: 8px;
+    margin-right: 8px;
   }
+
+
+.asset_full_price {
+
+  margin-left: 8px;
+  margin-right: 8px;
+
+}
+
+.asset_growth {
+
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.new_asset_button {
+
+  margin-left: 46.5%;
+  
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры */
+}

@@ -2,15 +2,50 @@
 {% block content %}
 
 <div class="asset_list">
-<h1>Активы</h1>
-{% for assets in assets %}
-    {{ assets }}
-{% endfor %}
+
+    <div class="name_of_asset">
+        <h1>Активы</h1>
+        {% for assets in assets %}
+        <li>{{ assets }}</li>
+        {% endfor %}
+
+    </div>
+
+    <div class="buy_price">
+        <h1>Цена покупки</h1>
+        {% for asset in assets %}
+        <li>{{ asset.buy_price }}</li>
+        {% endfor %}
+    </div>
+
+    <div class="asset_count">
+        <h1>Колличество</h1>
+        {% for asset in assets %}
+            <li>{{ asset.count }}</li>
+            
+        {% endfor %}
+    </div>
+
+    <div class="asset_full_price">
+        <h1>Стоимость</h1>
+        <li></li>
+
+    </div>
+
+    <div class="asset_growth">
+        <h1>%</h1>
+        
+        {% for asset in assets %}
+            <li>{{ asset.growth_percantage }}</li>
+            
+        {% endfor %}
+    </div>
+
+</div>
 <div class="new_asset_button">
     <a href="{% url 'new_asset_page' %}">
         <button type="button" class="btn btn-success">New asset</button>
     </a>
-</div>
 </div>
 
 {% endblock %}
