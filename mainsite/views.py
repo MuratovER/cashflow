@@ -24,16 +24,14 @@ def asset_list(request):
         # buy_price = assets.buy_price
         buy_price = asset.buy_price
         modified_buy_price = asset.modified_buy_price
-        
+
         if asset.modified_buy_price:
             growth_price = ((modified_buy_price-buy_price)/buy_price)*100
-            asset(growth=growth_price)
-            growth.save()
+            asset.growth = growth_price
             
-            print(growth)
 
 
-    context = {'assets': assets,'growth':growth} 
+    context = {'assets': assets} 
     return render(request, 'mainsite/input/asset_list.html', context )
 
 def asset_counts(request):
