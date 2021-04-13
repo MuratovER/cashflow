@@ -1,10 +1,11 @@
 # Cash flow 
 Приложение для учета личных финансов.Учета активов пасивов а также дельты в месяц.
 ## Технологический стэк
--Python
--Django
--Postgresql
--HTML,CSS,JS
+
+- Python
+- Django
+- Postgresql
+- HTML,CSS,JS
 
 ### Установка зависимостей
 ```
