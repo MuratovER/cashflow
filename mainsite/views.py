@@ -16,21 +16,27 @@ def home_page(request):
 
 @login_required
 def asset_list(request):
+    
+    def fixed(number, digits):
+        return f"{number:.{digits}f}"  
 
     assets = Asset.objects.all().order_by('asset_name') 
 
-
     for asset in assets:
-        # buy_price = assets.buy_price
         buy_price = asset.buy_price
         modified_buy_price = asset.modified_buy_price
+        asset.cost_before = buy_price*asset.count
+
+        if asset.modified_buy_price:
+            asset.cost_after = modified_buy_price*asset.count
+        else:
+            asset.cost_after = asset.cost_before
 
         if asset.modified_buy_price:
             growth_price = ((modified_buy_price-buy_price)/buy_price)*100
-            asset.growth = growth_price
-            
+            asset.growth = fixed(growth_price, 2)
 
-
+    
     context = {'assets': assets} 
     return render(request, 'mainsite/input/asset_list.html', context )
 

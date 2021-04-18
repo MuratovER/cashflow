@@ -4,43 +4,50 @@
 <div class="asset_list">
 
     <div class="name_of_asset">
-        <h1>Активы</h1>
+        <h2>Активы</h2>
         {% for assets in assets %}
         <li>{{ assets }}</li>
         {% endfor %}
-
     </div>
 
     <div class="buy_price">
-        <h1>Цена покупки</h1>
+        <h2>Цена</h2>
         {% for asset in assets %}
+        {% if asset.modified_buy_price%}
+        <li>{{ asset.modified_buy_price }}</li>
+        {% else %}
         <li>{{ asset.buy_price }}</li>
+        {% endif %}
         {% endfor %}
     </div>
 
     <div class="asset_count">
-        <h1>Колличество</h1>
+        <h2>Колличество</h2>
         {% for asset in assets %}
-            <li>{{ asset.count }}</li>
-            
+            <li>{{ asset.count }}</li>     
         {% endfor %}
     </div>
 
     <div class="asset_full_price">
-        <h1>Стоимость</h1>
-        <li></li>
-
-    </div>
-
-    <div class="asset_growth">
-        <h1>%</h1>
-        
+        <h2>Стоимость ДО</h2>
         {% for asset in assets %}
-            <li>{{ asset.growth }}</li>
-            
+            <li>{{ asset.cost_before}}</li>     
+        {% endfor %}
+    </div>
+    <div class="asset_full_price">
+        <h2>Стоимость ПОСЛЕ</h2>
+        {% for asset in assets %}
+            <li>{{ asset.cost_after}}</li>     
         {% endfor %}
     </div>
 
+    <div class="asset_growth">
+        <h2>%</h2>
+        {% for asset in assets %}
+            <li>{{ asset.growth }}</li>  
+        {% endfor %}
+    </div>
+    
 </div>
 <div class="new_asset_button">
     <a href="{% url 'new_asset_page' %}">
